@@ -8,7 +8,7 @@ pipeline {
             steps {
                  git (
                     branch: 'main',
-                    url: 'https://github.com/banothkranthinaik/spring-petclinic-kranthi.git'
+                    url: 'https://github.com/banothkranthinaik/spring-petclinic11.git'
                  )
             }
         }
@@ -17,9 +17,9 @@ pipeline {
                 withCredentials([string(credentialsId: 'MYSONAR', variable: 'SONAR_TOKEN')]) {
                 withSonarQubeEnv('SONAR') { 
                     sh """mvn package sonar:sonar \
-                       -Dsonar.projectkey=banothkranthinaik_spring-petclinic-kranthi_spring-petclinic \
+                       -Dsonar.projectKey=banothkranthinaik_spring-petclinic11 \
                        -Dsonar.organization=banothkranthinaik \
-                       -Dsonar.host.url=https://https://sonarcloud.io// \
+                       -Dsonar.host.url=https://https://sonarcloud.io/ \
                        -Dsonar.login=$SONAR_TOKEN"""
                 }
             }
