@@ -7,9 +7,9 @@ on:
 
 jobs:
   build:
-    name: my_spc
+    name: my-spc
     runs-on: self-hosted
-    
+
     steps:
       - name: Git Checkout
         uses: actions/checkout@v4
