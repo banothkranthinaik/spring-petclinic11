@@ -13,7 +13,15 @@ jobs:
     steps:
       - name: Git Checkout
         uses: actions/checkout@v4
-
-      - name: Build Java with Maven
+      - name: Build Java with Maven 
         run: mvn package
-      - name: my sonar scan
+      - name: Build and analyze 
+        uses: SonarSource/sonarqube-scan-action@v4
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          args: >
+            -Dsonar.organization=banothkranthinaik
+            "-Dsonar.projectName=petclinic"  
+            -Dsonar.projectkey=banothkranthinaik_spring-petclinic11
